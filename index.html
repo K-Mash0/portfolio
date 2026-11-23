@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kwanele Mdolo – Software Developer</title>
+  <meta name="description"
+    content="Portfolio of Kwanele Mdolo, a software developer with a Diploma in Information Technology from the Central University of Technology.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:wght@500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fbfaf7;
+      --card: #fff;
+      --ink: #16181d;
+      --mute: #5d636e;
+      --line: #e4e1d9;
+      --acc: #1f4fd8;
+      --acc-ink: #fff
+    }
+
+    @media(prefers-color-scheme:dark) {
+      :root {
+        --bg: #101216;
+        --card: #171a20;
+        --ink: #eceef2;
+        --mute: #9aa1ad;
+        --line: #272b33;
+        --acc: #86a8ff;
+        --acc-ink: #0b1020
+      }
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 400 16px/1.65 Inter, system-ui, sans-serif
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: Newsreader, Georgia, serif;
+      font-weight: 500;
+      margin: 0;
+      line-height: 1.12
+    }
+
+    a {
+      color: inherit
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--acc);
+      outline-offset: 3px
+    }
+
+    .skip {
+      position: absolute;
+      left: -999px
+    }
+
+    .skip:focus {
+      left: 12px;
+      top: 12px;
+      background: var(--card);
+      padding: 8px 12px;
+      z-index: 20
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line)
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      height: 64px
+    }
+
+    nav b {
+      font: 600 20px Newsreader, serif
+    }
+
+    nav .l {
+      display: flex;
+      gap: 26px;
+      align-items: center
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--mute);
+      font-size: 15px
+    }
+
+    nav a:hover {
+      color: var(--ink)
+    }
+
+    @media(max-width:700px) {
+      nav .l a:not(.btn) {
+        display: none
+      }
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 6px;
+      border: 1px solid var(--ink);
+      background: none;
+      color: var(--ink) !important;
+      font: 500 15px Inter, sans-serif;
+      text-decoration: none;
+      cursor: pointer
+    }
+
+    .btn:hover {
+      background: var(--ink);
+      color: var(--bg) !important
+    }
+
+    .btn.main {
+      background: var(--acc);
+      border-color: var(--acc);
+      color: var(--acc-ink) !important
+    }
+
+    .btn.main:hover {
+      filter: brightness(.92);
+      background: var(--acc)
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 80px 24px 72px
+    }
+
+    @media(max-width:800px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-top: 44px
+      }
+    }
+
+    .eyebrow {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--acc);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin: 0 0 18px
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 5.6vw, 64px);
+      letter-spacing: -.02em
+    }
+
+    .lead {
+      color: var(--mute);
+      font-size: 19px;
+      max-width: 52ch;
+      margin: 22px 0 28px
+    }
+
+    .row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .row.sm {
+      margin-top: 22px;
+      gap: 20px;
+      font-size: 15px
+    }
+
+    .row.sm a {
+      color: var(--mute)
+    }
+
+    .facts {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin: 36px 0 0;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      font-size: 14px
+    }
+
+    .facts dt {
+      color: var(--mute)
+    }
+
+    .facts dd {
+      margin: 2px 0 0;
+      font-weight: 500
+    }
+
+    .photo {
+      aspect-ratio: 4/5;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--line);
+      border: 1px solid var(--line);
+      max-width: 420px;
+      justify-self: end;
+      width: 100%
+    }
+
+    @media(max-width:800px) {
+      .photo {
+        justify-self: start;
+        max-width: 420px
+      }
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: flex
+    }
+
+    .photo span {
+      display: grid;
+      place-items: center;
+      height: 100%;
+      font: 500 80px Newsreader, serif;
+      color: var(--mute)
+    }
+
+    section {
+      padding: 72px 0;
+      border-top: 1px solid var(--line)
+    }
+
+    .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 32px
+    }
+
+    .head h2 {
+      font-size: clamp(28px, 4vw, 40px)
+    }
+
+    .head p {
+      margin: 8px 0 0;
+      color: var(--mute);
+      max-width: 56ch
+    }
+
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      padding: 5px 14px;
+      border-radius: 99px;
+      font: 500 14px Inter, sans-serif;
+      cursor: pointer
+    }
+
+    .chip[aria-pressed=true] {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink)
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column
+    }
+
+    .media {
+      aspect-ratio: 16/10;
+      background: var(--line);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    .ph {
+      display: grid;
+      place-items: center;
+      height: 100%;
+      font: 500 48px Newsreader, serif;
+      color: var(--mute);
+      letter-spacing: .04em
+    }
+
+    .body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1
+    }
+
+    .body h3 {
+      font-size: 23px
+    }
+
+    .status {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--acc);
+      text-transform: uppercase;
+      letter-spacing: .05em
+    }
+
+    .body p {
+      margin: 0;
+      color: var(--mute);
+      flex: 1;
+      font-size: 15px
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 13px;
+      color: var(--mute)
+    }
+
+    .links {
+      display: flex;
+      gap: 18px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      font-size: 15px;
+      font-weight: 500
+    }
+
+    .links a,
+    .link {
+      color: var(--acc);
+      text-decoration: none;
+      background: none;
+      border: 0;
+      padding: 0;
+      font: inherit;
+      cursor: pointer
+    }
+
+    .links a:hover,
+    .link:hover {
+      text-decoration: underline
+    }
+
+    .cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px
+    }
+
+    .cols h3,
+    .two h3 {
+      font: 600 13px Inter, sans-serif;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--mute);
+      margin-bottom: 12px
+    }
+
+    ul.plain {
+      list-style: none;
+      margin: 0;
+      padding: 0
+    }
+
+    ul.plain li {
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .two {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 64px
+    }
+
+    @media(max-width:800px) {
+      .two {
+        grid-template-columns: 1fr;
+        gap: 40px
+      }
+    }
+
+    .two p {
+      margin: 0 0 16px
+    }
+
+    .two small {
+      display: block;
+      color: var(--mute)
+    }
+
+    form {
+      display: grid;
+      gap: 16px
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      font-weight: 500;
+      font-size: 15px
+    }
+
+    input,
+    textarea {
+      font: inherit;
+      padding: 11px 13px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink)
+    }
+
+    #msg {
+      min-height: 1.6em;
+      color: var(--mute);
+      font-size: 15px
+    }
+
+    .hp {
+      position: absolute;
+      left: -9999px
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--mute);
+      font-size: 14px
+    }
+
+    dialog {
+      width: min(1100px, 94vw);
+      height: 86vh;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--ink)
+    }
+
+    dialog[open] {
+      display: flex;
+      flex-direction: column
+    }
+
+    dialog::backdrop {
+      background: rgba(0, 0, 0, .55)
+    }
+
+    dialog header {
+      position: static;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px
+    }
+
+    dialog iframe {
+      flex: 1;
+      border: 0;
+      width: 100%;
+      background: #fff
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <div class="wrap">
+      <nav>
+        <b>Kwanele Mdolo</b>
+        <div class="l"><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#about">About</a><a
+            href="#contact">Contact</a><a class="btn cv-link" href="cv.pdf" download>Download CV</a></div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap hero">
+      <div>
+        <p class="eyebrow">Junior Software Developer</p>
+        <h1>I build reliable web and mobile applications.</h1>
+        <p>Junior developer with a Diploma in IT. I work with C#,
+          ASP.NET Core, SQL, Supabase and Flutter, and have led student teams of up to six.
+          For my final project I designed and built the front end of a platform for a real client, Wilgehof Primary
+          School.
+          I’m looking for my first developer role.</p>
+        <div class="row">
+          <a class="btn main" href="#projects">View projects</a>
+          <a class="btn cv-link" href="cv.pdf" download>Download CV</a>
+        </div>
+        <div class="row sm"><a class="gh" href="#" target="_blank" rel="noopener">GitHub</a><a class="li" href="https://www.linkedin.com/in/kwanelemdolo/"
+            target="_blank" rel="noopener">LinkedIn</a></div>
+        <dl class="facts">
+          <div>
+            <dt>Education</dt>
+            <dd>NSC(Bachelor Pass), East London Secondary School</dd>
+            <dd>Diploma in IT, CUT</dd>
+          </div>
+          <div>
+            <dt>Location</dt>
+            <dd>East London, South Africa</dd>
+            <dd> Willing to relocate</dd>
+          </div>
+          <div>
+            <dt>Looking for</dt>
+            <dd>Junior Software Developer</dd>
+            <dd>Junior Web Developer</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="photo"><img src="images\IMG-20260228-WA0088.jpg"
+          alt="Portrait of Kwanele Mdolo" width="420" height="515"
+          onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'KM'}))"></div>
+    </div>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="head">
+          <div>
+            <h2>Projects</h2>
+            <p>Selected work from my studies. Where a project has source code which can be pulled straight from github.
+            </p>
+          </div>
+          <div class="chips" id="filters" role="group" aria-label="Filter projects by technology"></div>
+        </div>
+        <div class="grid" id="projectGrid">
+          <p>Loading projects…</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="head">
+          <h2>Skills</h2>
+        </div>
+        <div class="cols">
+          <div>
+            <h3>Languages</h3>
+            <ul class="plain">
+              <li>C#</li>
+              <li>JavaScript</li>
+              <li>SQL</li>
+              <li>Python</li>
+              <li>PHP</li>
+              <li>Dart</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Frameworks</h3>
+            <ul class="plain">
+              <li>ASP.NET Core MVC</li>
+              <li>Entity Framework</li>
+              <li>Flutter</li>
+              <li>Bootstrap</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Data and backend</h3>
+            <ul class="plain">
+              <li>SQL Server and SQLite</li>
+              <li>Supabase</li>
+              <li>Authentication and RBAC</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Tools</h3>
+            <ul class="plain">
+              <li>Git and GitHub</li>
+              <li>Figma</li>
+              <li>Linux (RHEL)</li>
+              <li>Joomla and WordPress</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap two">
+        <div>
+          <h2 style="margin-bottom:22px">About</h2>
+          <p>I’m Kwanele, though most people call me Kwaks. I’m from East London and I studied IT at the Central
+            University of Technology in Bloemfontein. Most of what I know about software I learned by building things
+            with other students.</p>
+          <p>My strongest side is the back end and the database. I work mostly in C# and ASP.NET Core with SQL, and I’ve
+            used Supabase for logins and storage. I’ve also built Flutter apps and designed screens in Figma.</p>
+          <p>I’ve led several of our group projects, including as technical lead on the capstone. That mostly meant
+            making sure everyone’s code actually worked together before the deadline. Away from the laptop, I would play wing
+            for the university rugby team.</p>
+          <p>I’m looking for my first developer job.</p>
+        </div>
+        <div>
+          <h3>Education</h3>
+          <ul class="plain">
+            <li>National Senior Certificate<small>East London Secondary School, 2011-2022</small></li>
+            <li>Diploma in Information Technology<small>Central University of Technology, 2023 – 2026</small></li>
+          </ul>
+          <h3 style="margin-top:28px">Certifications</h3>
+          <ul class="plain">
+            <li>IT Essentials<small>Cisco Networking Academy, 2025</small></li>
+            <li>Introduction to Data Science<small>Cisco Networking Academy, 2025</small></li>
+            <li>Introduction to Cybersecurity<small>Cisco Networking Academy, in progress</small></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap two">
+        <div>
+          <h2 style="margin-bottom:16px">Contact</h2>
+          <p style="color:var(--mute)">Hiring for a junior developer role, or want to talk about a project? Send a
+            message and I’ll reply as soon as I can.</p>
+          <p><a class="mail" href="#"></a></p>
+        </div>
+        <form id="contactForm">
+          <label>Name<input name="name" required maxlength="100" autocomplete="name"></label>
+          <label>Email<input name="email" type="email" required maxlength="200" autocomplete="email"></label>
+          <label>Message<textarea name="message" rows="5" required maxlength="2000"></textarea></label>
+          <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="row"><button class="btn main" type="submit">Send message</button></div>
+          <div id="msg" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">© <span id="yr"></span> Kwanele Mdolo</div>
+  </footer>
+
+  <dialog id="proto" aria-labelledby="protoTitle">
+    <header><strong id="protoTitle"></strong><button class="btn" id="protoClose" type="button">Close</button></header>
+    <iframe id="protoFrame" title="Figma prototype" src="about:blank" allowfullscreen></iframe>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script>
+    const CONFIG = {
+      github: "https://github.com/K-Mash0",
+      linkedin: "https://www.linkedin.com/in/kwanelemdolo/",
+      supabaseUrl: "https://qeckmedvfbcrkqsxvhzu.supabase.co",
+      supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFlY2ttZWR2ZmJjcmtxc3h2aHp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUyNzI0MTYsImV4cCI6MjExMDg0ODQxNn0.iWIGSLpuYsfglZ_cqeNpT1g0Bi1cUROwdA-YUrlmywA"  // anon public key (safe to expose; RLS protects data)
+    };
+    /* Shown until Supabase is connected or if the projects table is empty */
+    const FALLBACK = [
+      { title: "Student Enrollment System", summary: "ASP.NET Core MVC application for managing student enrollment, with role-based access for users and administrators.", tech: ["C#", "ASP.NET Core", "Entity Framework", "SQL"], status: " Completed" },
+      { title: "Skool-Comm", summary: "Websites for a primary school: behavioural points, parent communication and Attendance recording.", tech: ["JavaScript", "Supabase", "Flutter&DART", "ASP.NET MVC", "C#", "HTML", "CSS"], status: "Completed" },
+      { title: "Portfolio Website", summary: "This site. A static front end with a Supabase back end for projects, contact messages, CV downloads and email alerts.", tech: ["JavaScript", "Supabase", "PostgreSQL", "HTML", "CSS"], status: "Live" },
+      { title: "Transport Registration App", summary: "Two Flutter apps (rider and staff) sharing one database to replace a manual transport registration process.", tech: ["Flutter", "Dart", "Supabase"], status: "Concept" },
+      { title: "Skool-Comm", summary: "Web interface design for a primary school: behavioural points, parent communication and the database design behind them.", tech: ["Figma", "UI/UX", "CSS"], status: "Design" }
+    ];
+
+    const $ = s => document.querySelector(s), $$ = s => document.querySelectorAll(s);
+    const h = (tag, attrs = {}, ...kids) => {
+      const el = document.createElement(tag);
+      for (const [k, v] of Object.entries(attrs)) k === "text" ? el.textContent = v : el.setAttribute(k, v);
+      kids.forEach(k => el.append(k));
+      return el;
+    };
+    const ok = u => /^https?:\/\//i.test(u || "");
+    const isFigma = u => /^https:\/\/([\w-]+\.)?figma\.com\//i.test(u || "");
+    const sb = (CONFIG.supabaseUrl && CONFIG.supabaseKey && window.supabase)
+      ? window.supabase.createClient(CONFIG.supabaseUrl, CONFIG.supabaseKey) : null;
+
+    $("#yr").textContent = new Date().getFullYear();
+    $$(".gh").forEach(a => a.href = CONFIG.github);
+    $$(".li").forEach(a => a.href = CONFIG.linkedin);
+    $$(".mail").forEach(a => { a.href = "mailto:" + CONFIG.email; if (!a.textContent) a.textContent = CONFIG.email; });
+    $$(".cv-link").forEach(a => {
+      if (sb) a.href = sb.storage.from("cv").getPublicUrl("cv.pdf").data.publicUrl;
+      a.addEventListener("click", () => { if (sb) sb.from("cv_downloads").insert({}).then(() => { }); });
+    });
+
+    /* Prototype viewer */
+    const dlg = $("#proto");
+    function openProto(p) {
+      $("#protoTitle").textContent = p.title + " – prototype";
+      $("#protoFrame").src = "https://www.figma.com/embed?embed_host=share&url=" + encodeURIComponent(p.figma_url);
+      dlg.showModal();
+    }
+    dlg.addEventListener("close", () => { $("#protoFrame").src = "about:blank"; });
+    $("#protoClose").onclick = () => dlg.close();
+    dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+
+    /* Projects */
+    let projects = [], active = "All";
+    function card(p) {
+      const initials = p.title.split(/\s+/).map(w => w[0]).slice(0, 2).join("").toUpperCase();
+      const ph = () => h("div", { class: "ph", text: initials, "aria-hidden": "true" });
+      const media = h("div", { class: "media" });
+      if (p.image_url && !/^\s*(javascript|data):/i.test(p.image_url)) {
+        const im = h("img", { src: p.image_url, alt: p.title + " screenshot", loading: "lazy" });
+        im.onerror = () => im.replaceWith(ph());
+        media.append(im);
+      } else media.append(ph());
+      const tags = h("ul", { class: "tags" }); (p.tech || []).forEach(t => tags.append(h("li", { text: t })));
+      const links = h("div", { class: "links" });
+      if (ok(p.github_url)) links.append(h("a", { href: p.github_url, target: "_blank", rel: "noopener", text: "Code" }));
+      if (ok(p.live_url)) links.append(h("a", { href: p.live_url, target: "_blank", rel: "noopener", text: "Live demo" }));
+      if (isFigma(p.figma_url)) { const b = h("button", { type: "button", class: "link", text: "Prototype" }); b.onclick = () => openProto(p); links.append(b); }
+      const body = h("div", { class: "body" });
+      if (p.status) body.append(h("span", { class: "status", text: p.status }));
+      body.append(h("h3", { text: p.title }), h("p", { text: p.summary }), tags);
+      if (links.children.length) body.append(links);
+      return h("article", { class: "card" }, media, body);
+    }
+    function renderProjects() {
+      const grid = $("#projectGrid"); grid.replaceChildren();
+      const list = projects.filter(p => active === "All" || (p.tech || []).includes(active));
+      if (!list.length) grid.append(h("p", { text: "No projects match this filter." }));
+      list.forEach(p => grid.append(card(p)));
+    }
+    function renderFilters() {
+      const box = $("#filters"); box.replaceChildren();
+      ["All", ...new Set(projects.flatMap(p => p.tech || []))].forEach(t => {
+        const b = h("button", { class: "chip", type: "button", "aria-pressed": String(t === active), text: t });
+        b.onclick = () => { active = t; renderFilters(); renderProjects(); };
+        box.append(b);
+      });
+    }
+    async function loadProjects() {
+      projects = FALLBACK;
+      if (sb) {
+        const { data, error } = await sb.from("projects").select("*")
+          .order("featured", { ascending: false }).order("sort_order").order("created_at", { ascending: false });
+        if (!error && data && data.length) projects = data;
+      }
+      renderFilters(); renderProjects();
+    }
+    loadProjects();
+
+    /* Contact form */
+    $("#contactForm").addEventListener("submit", async e => {
+      e.preventDefault();
+      const f = e.target, msg = $("#msg");
+      if (f.website.value) return;
+      const row = { name: f.name.value.trim(), email: f.email.value.trim(), message: f.message.value.trim() };
+      if (!sb) { location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent("Portfolio message from " + row.name)}&body=${encodeURIComponent(row.message)}`; return; }
+      msg.textContent = "Sending…";
+      const { error } = await sb.from("messages").insert(row);
+      if (error) msg.textContent = "Message not sent. Please email " + CONFIG.email + " instead.";
+      else { msg.textContent = "Message sent. Thank you, I’ll reply soon."; f.reset(); }
+    });
+  </script>
+</body>
+
+</html>
